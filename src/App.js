@@ -5,7 +5,7 @@ function App() {
   return (
     <section className="app">
       <div className="container">
-        <h1>Email App</h1>
+        <h1>Email App <span className='primary'>.</span></h1>
         <p>Send an email to anyone</p>
 
         <form>

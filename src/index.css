@@ -1,10 +1,12 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Rubik+Broken+Fax&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Rubik+Lines&display=swap');
 body {
   padding: 0;
   margin: 0;
   background-color: #333;
   color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Montserrat;
+
 }
 
 section {
@@ -15,5 +17,67 @@ section {
   max-width: 1204px;
   margin-left: auto;
   margin-right: auto;
-  
+  text-align: center;
+
+}
+
+form {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: start;
+}
+
+form input,textarea {
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+form input {
+  height: 40px;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+form textarea {
+  outline: none;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  height: 100px;
+}
+form label {
+  margin-left: 10%;
+ 
+}
+form button {
+  width: 50%;
+  min-height: 40px;
+  margin-left: 25%;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 900;
+  background-color: orange;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 #000;
+  transition: 1s;
+}
+form button:hover {
+  background-color: orangered;
+  box-shadow: 8px 8px 0 #000;
+}
+h1 {
+  font-family: rubik broken fax;
+  text-decoration: underline;
+}
+
+.primary {
+  color: orange;
 }
