@@ -81,3 +81,9 @@ h1 {
 .primary {
   color: orange;
 }
+
+.err {
+  display: block;
+  margin-left: 10%;
+  color: red;
+}

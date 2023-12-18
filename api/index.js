@@ -1,33 +1,41 @@
-import express from 'express';
-const { Resend } =  require('resend');
+const { Resend } = require('resend');
+const express= require('express');
+const { Request, Response } = require('express');
 const { config } = require('dotenv');
+const cors = require('cors');
+
 
 config();
-
-const app = express();
-const PORT = 8000;
-
-app.use(express.json());
-
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-app.post('/send-email', (req, res) => {
+app.post('/', async (req, res) => {
+  const { to, subject, html } = req.body;
 
-    const { to, subject, html } = req.body;
+  const { data, error } = await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: to,
+    subject: subject,
+    html: `
+    <h1>Hello </h1>
+    <div>
+      <h2>Message</h2>
+      <p>${html}</p>
+    </div>
+    `,
+  });
 
-    resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to,
-        subject,
-        html
-      }).then(() => {
-        res.status(200).json({ message: "Email was sent successfully."});
-      }).catch((err) => {
-        res.status(500).json({ message: "Something went wrong while sending the email"});
-      });
+  if (error) {
+    return res.status(400).json(error);
+  }
+
+  return res.status(200).json(data)
 });
 
-app.listen(PORT, () => {
-    console.log("PORT running");
+app.listen(4000, ()=>{
+  console.log("Server running");
 })
+
